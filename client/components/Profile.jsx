@@ -60,7 +60,10 @@ class Profile extends React.Component {
 
     this.unfollowUser = (idUnfollow) => {
       const { id } = this.state;
-      axios.delete('/profile/unfollow', { data: { friend1Id: id, friend2Id: idUnfollow } })
+      axios
+        .delete('/profile/unfollow', {
+          data: { friend1Id: id, friend2Id: idUnfollow },
+        })
         .then(() => {
           this.getUser();
         })

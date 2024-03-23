@@ -9,7 +9,7 @@ function FriendItem({ friend, unfollowUser }) {
     <ListGroupItem>
       { friend.displayName }
       <Button>See page</Button>
-      <Button variant='danger' onClick={() => unfollowUser(friend.id)}>Unfollow</Button>
+      <Button variant="danger" onClick={() => unfollowUser(friend.id)}>Unfollow</Button>
     </ListGroupItem>
   );
 }

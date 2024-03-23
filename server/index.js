@@ -3,10 +3,10 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
-const { User, customDrinks } = require('../server/db/index')
-const axios = require('axios')
+const axios = require('axios');
 
 const { Op } = require('sequelize');
+const { User, customDrinks } = require('./db/index');
 const { UserFriends } = require('./db/index');
 
 // const indexRouter = require('./routes/index');
@@ -121,34 +121,33 @@ app.delete('/profile/unfollow', (req, res) => {
 app.get('/api/customDrinks', (req, res) => {
   // console.log(req.body)
   customDrinks.findAll()
-  .then((results) => {
-      res.status(200).send(results)
-  })
-  .catch((err) => {
-      console.error(err)
-      res.sendStatus(500)
-  })
+    .then((results) => {
+      res.status(200).send(results);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
   // res.status(200).send('hello post request')
-}) 
+});
 
 app.get('/api/getIngredients', (req, res) => {
-
   axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list')
-  .then((results) => {
-      console.log(results.data.drinks)
+    .then((results) => {
+      console.log(results.data.drinks);
       // let storage = []
       // results.data.drinks.forEach((drink) => {
       //     storage.push(drink['strIngredient1'])
-      res.status(200).send(results.data.drinks)
-  })
-  .catch((err) => {
+      res.status(200).send(results.data.drinks);
+    })
+    .catch((err) => {
       // console.log(storage)
       // updateIngredients(newIngredients => [...newIngredients, storage])
       // updateIngredients(storage)
-      console.error(err)
-      res.sendStatus(500)
-})
-})
+      console.error(err);
+      res.sendStatus(500);
+    });
+});
 
 app.get('*', (req, res) => {
   // console.log('trying to find full url', req.hostname);

@@ -1,9 +1,15 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 import FakeData from '../FakeData.json';
 import DrinkEntry from './communityChildren/DrinkEntry';
-import { Container, Row, Col } from 'react-bootstrap';
 
-const Community = () => {
+function Community() {
+  const getCustomDrinks = () => {
+    axios.get('/community/');
+  };
+
+  getCustomDrinks();
   return (
     <>
       <h1>Welcome to the Community Tab</h1>
@@ -13,7 +19,7 @@ const Community = () => {
       </p>
       <Container>
         {/* <Row> */}
-        <Row xs={1} sm={2} md={3} lg={4} xl={4} className='g-4'>
+        <Row xs={1} sm={2} md={3} lg={4} xl={4} className="g-4">
           {FakeData.drinks.map((drink) => (
             <Col key={drink.idDrink}>
               <DrinkEntry currDrink={drink} />
@@ -23,8 +29,6 @@ const Community = () => {
       </Container>
     </>
   );
-};
+}
 
 export default Community;
-
-

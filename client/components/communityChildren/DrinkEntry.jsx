@@ -1,33 +1,32 @@
 import React from 'react';
-import DrinkTags from './DrinkTags.jsx';
 import Card from 'react-bootstrap/Card';
+import DrinkTags from './DrinkTags.jsx';
 
 function DrinkEntry({ currDrink }) {
   const { strIngredient1, strIngredient2, strIngredient3 } = currDrink;
   const threeMainIngredients = [strIngredient1, strIngredient2, strIngredient3];
-  const splitStringTags =
-    currDrink.strTags !== null ? currDrink.strTags.split(',') : [''];
+  const splitStringTags = currDrink.strTags !== null ? currDrink.strTags.split(',') : [''];
   return (
     <Card
       style={{ width: '18rem' }}
-      className='text-center'
-      bg='dark'
-      text='light'
-      border='light'
+      className="text-center"
+      bg="dark"
+      text="light"
+      border="light"
     >
       {/* {console.log(currDrink)} */}
       <Card.Body>
         <Card.Img
-          variant='top'
+          variant="top"
           src={currDrink.strDrinkThumb}
           // style={{ width: '160px', height: '160px' }}
         />
         <Card.Title>{currDrink.strDrink}</Card.Title>
-        <Card.Subtitle className='mb-2 text-secondary'>
+        <Card.Subtitle className="mb-2 text-secondary">
           {' '}
           {currDrink.strCategory}
         </Card.Subtitle>
-        <Card.Subtitle className='mb-2 text-secondary'>
+        <Card.Subtitle className="mb-2 text-secondary">
           {' '}
           {currDrink.strGlass}
         </Card.Subtitle>

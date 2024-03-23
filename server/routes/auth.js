@@ -10,20 +10,18 @@ const router = express.Router();
 
 const { GOOGLE_CLIENT_SECRET, GOOGLE_CLIENT_ID, npm_lifecycle_event } = process.env;
 
-
 const devOrProd = () => {
-  if(npm_lifecycle_event === 'start'){
+  if (npm_lifecycle_event === 'start') {
     return 'localhost';
-  } else {
-    return '13.52.61.243';
   }
-}
+  return '13.52.61.243';
+};
 
 passport.use(new GoogleStrategy(
   {
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: `http://${devOrProd()}:8080/auth/google/callback`
+    callbackURL: `http://${devOrProd()}:8080/auth/google/callback`,
   },
   ((accessToken, refreshToken, profile, cb) => {
     // console.log(profile);
@@ -62,7 +60,6 @@ router.get('/google', passport.authenticate('google', {
     }
   });
 }));
-
 
 router.get('/google/callback', passport.authenticate('google', {
   successRedirect: '/dashboard',

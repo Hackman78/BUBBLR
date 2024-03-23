@@ -2,7 +2,6 @@ import React from 'react';
 // import axios from 'axios';
 
 function Login() {
-
   // const onclick = () => {
   //   axios.get('/auth/google')
   //     .then(response => console.log('auth onclick: ', response))
