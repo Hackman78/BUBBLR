@@ -4,7 +4,7 @@ import DrinkTags from './DrinkTags.jsx';
 
 function DrinkEntry({ currDrink, tags }) {
   const { strIngredient1, strIngredient2, strIngredient3 } = currDrink;
-  const threeMainIngredients = [strIngredient1, strIngredient2, strIngredient3];
+  // const threeMainIngredients = [strIngredient1, strIngredient2, strIngredient3];
   const splitStringTags = currDrink.strTags !== null ? currDrink.strTags.split(',') : [''];
   const threeMainIngredients = [strIngredient1, strIngredient2];
   
