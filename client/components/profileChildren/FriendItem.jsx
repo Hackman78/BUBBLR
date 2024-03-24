@@ -9,13 +9,9 @@ function FriendItem({ friend, unfollowUser }) {
   return (
     <ListGroupItem>
       { friend.displayName }
-<<<<<<< HEAD
-      <Button>See page</Button>
-=======
       <Link to={`friend/${friend.id}`}>
         <Button>See page</Button>
       </Link>
->>>>>>> 9708028782111cd2ec3afbf2f65eeeffce190020
       <Button variant="danger" onClick={() => unfollowUser(friend.id)}>Unfollow</Button>
     </ListGroupItem>
   );
