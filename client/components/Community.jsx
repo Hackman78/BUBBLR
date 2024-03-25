@@ -4,7 +4,7 @@ import axios from 'axios';
 import FakeData from '../FakeData.json';
 import DrinkEntry from './communityChildren/DrinkEntry';
 
-function Community() {
+unction Community() {
   const getCustomDrinks = () => {
     axios.get('/community/');
   };

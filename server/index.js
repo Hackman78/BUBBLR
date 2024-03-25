@@ -3,8 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
-const { User, customDrinks, estDrinks } = require('../server/db/index');
 const axios = require('axios');
+const { User, customDrinks, estDrinks } = require('./db/index');
 
 // const { customDrinks } = require('./db/index');
 
@@ -112,7 +112,7 @@ app.post('/api/customDrinks', (req, res) => {
 // add to db only when drink info is 'got'
 app.post('/api/estDrinks', async (req, res) => {
   console.log(req.body);
-  let data = req.body;
+  const data = req.body;
 
   estDrinks
     .findOne({ where: { drinkId: data.drinkId } })

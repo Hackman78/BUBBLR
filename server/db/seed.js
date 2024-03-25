@@ -10,7 +10,7 @@ User.bulkCreate([
     displayName: 'Ky P.',
   },
   {
-    "googleId": "111034008390782399142",
-    "displayName": "Patrick Henry"
+    googleId: '111034008390782399142',
+    displayName: 'Patrick Henry',
   },
 ]);
